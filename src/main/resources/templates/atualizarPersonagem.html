@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <style>
+        label {
+            min-width: 120px;
+            margin-left: 10px;
+        }
+
+        input {
+            min-width: 50px;
+        }
+
+    </style>
+
+
+    <nav class="navbar bg-dark navbar-dark navbar-expand-sm py-3 sticky-top">
+
+        <div class="container">
+
+
+            <a class="navbar-brand " href="#">
+                Logo
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav"
+                style="cursor:pointer" aria-expanded="true">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="menuNav">
+
+
+                <ul class="navbar-nav ms-auto text-center ">
+
+                    <li class="nav-item">
+                        <a th:href="@{/}" class=" nav-link btn btn-primary btn-sm mb-3 active"> Inicio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/FormPersonagem}" class=" nav-link btn btn-primary btn-sm mb-3"> Cadastrar
+                            personagem
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/ListaPersonagem}" class=" nav-link btn btn-primary btn-sm mb-3"> Listar
+                            Personagem
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/Sessao}" class=" nav-link btn btn-primary btn-sm mb-3"> Sessao</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown  ">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Outros</a>
+                            <ul class="dropdown-menu text-center dropdown-menu-end">
+                                <li><a href="#" class="dropdown-item">A</a></li>
+                                <li><a href="#" class="dropdown-item">A</a></li>
+                                <li><a href="#" class="dropdown-item">A</a></li>
+                                <li><a href="#" class="dropdown-item">A</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+
+
+
+
+    <div class="container">
+        <h1 class="text-center">Atributos Gerais do Personagem</h1>
+        <form action="#" th:action="@{/CadPersonagem}" th:object="${personagem}" method="POST">
+            
+        
+
+            <div class="form-group row">
+                <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
+                <div class="col-sm-4">
+                    
+                    <input type="text" th:field="*{nome}" placeholder="Insira o nome" class="form-control">
+                    <span class="text-danger" th:if="${#fields.hasErrors('Nome')}" th:errors="*{Nome}"></span>
+                    
+                </div>
+
+
+
+
+            </div>
+
+
+
+            <h2 class="text-center">Status</h2>
+            <div class="form-group row">
+                <label for="vida" class="col-sm-1 col-form-label">Vida:</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{vida}" placeholder="Insira vida" class="form-control">
+                     <span class="text-danger" th:if="${#fields.hasErrors('vida')}" th:errors="*{vida}"></span>
+                </div>
+                <label for="sanidade" class="col-sm-1 col-form-label">Sanidade: </label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{sanidade}" placeholder="Insira sanidade" class="form-control">
+                    <span class="text-danger" th:if="${#fields.hasErrors('sanidade')}" th:errors="*{sanidade}"></span>
+                </div>
+            </div>
+
+
+
+
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <hr><br>
+            <h2 class="text-center">Atributos</h2>
+            <div class="form-group row">
+
+                <label for="forca" class="col-sm-1 col-form-label">forca:</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{forca}" placeholder="Insira a forca" class="form-control">
+                    <span class="text-danger" th:if="${#fields.hasErrors('forca')}" th:errors="*{forca}"></span>
+                </div>
+                <label for="agilidade" class="col-sm-1 col-form-label">agilidade: </label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{agilidade}" placeholder="Insira a agilidade" class="form-control">
+                    <span class="text-danger" th:if="${#fields.hasErrors('agilidade')}" th:errors="*{agilidade}"></span>
+                </div>
+                <label for="presenca" class="col-sm-1 col-form-label">presenca: </label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{presenca}" placeholder="Insira a presenca" class="form-control">
+                    <span class="text-danger" th:if="${#fields.hasErrors('presenca')}" th:errors="*{presenca}"></span>
+                </div>
+                <label for="vigor" class="col-sm-1 col-form-label">vigor: </label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{vigor}" placeholder="Insira  vigor" class="form-control">
+                    <span class="text-danger" th:if="${#fields.hasErrors('vigor')}" th:errors="*{vigor}"></span>
+                </div>
+                <label for="inteligencia" class="col-sm-1 col-form-label">inteligencia: </label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{inteligencia}" placeholder="Insira inteligencia" class="form-control">
+                    <span class="text-danger" th:if="${#fields.hasErrors('inteligencia')}" th:errors="*{inteligencia}"></span>
+                </div>
+          
+            </div>
+
+
+
+
+
+
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <br>
+            <h2 class="text-center">Habilidades Gerais</h2>
+            <div class="form-group row">
+                <label for="adestramento" class="col-sm-1 col-form-label">adestramento</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{adestramento}" placeholder="Insira adestramento" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('adestramento')}" th:errors="*{adestramento}"></span>
+                </div>
+
+
+                <label for="artes" class="col-sm-1 col-form-label">artes</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{artes}" placeholder="Insiraartes" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('artes')}" th:errors="*{artes}"></span>
+                </div>
+
+                <label for="atletismo" class="col-sm-1 col-form-label">atletismo</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{atletismo}" placeholder="Insira atletismo" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('atletismo')}" th:errors="*{atletismo}"></span>
+                </div>
+                <label for="crime" class="col-sm-1 col-form-label">crime</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{crime}" placeholder="Insira a crime" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('inteligencia')}" th:errors="*{inteligencia}"></span>
+                </div>
+                <label for="ciencia" class="col-sm-1 col-form-label">ciencia:</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{ciencia}" placeholder="Insira ciencia" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('inteligencia')}" th:errors="*{inteligencia}"></span>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="diplomacia" class="col-sm-1 col-form-label">diplomacia:</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{diplomacia}" placeholder="Insira diplomacia" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('diplomacia')}" th:errors="*{diplomacia}"></span>
+                </div>
+                <label for="enganacao" class="col-sm-1 col-form-label">enganacao</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{enganacao}" placeholder="Insira a enganacao" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('enganacao')}" th:errors="*{enganacao}"></span>
+                </div>
+                <label for="fortitude" class="col-sm-1 col-form-label">fortitude</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{fortitude}" placeholder="Insira fortitude" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('fortitude')}" th:errors="*{fortitude}"></span>
+                </div>
+                <label for="religiao" class="col-sm-1 col-form-label">religiao</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{religiao}" placeholder="Insira religiao" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('religiao')}" th:errors="*{religiao}"></span>
+                </div>
+                <label for="furtividade" class="col-sm-1 col-form-label">furtividade</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{furtividade}" placeholder="Insira a furtividade" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('furtividade')}" th:errors="*{furtividade}"></span>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label for="intimidacao" class="col-sm-1 col-form-label">intimidacao</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{intimidacao}" placeholder="Insira intimidacao" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('intimidacao')}" th:errors="*{intimidacao}"></span>
+                </div>
+                <label for="sobrevivencia" class="col-sm-1 col-form-label">sobrevivencia</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{sobrevivencia}" placeholder="Insira sobrevivencia" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('sobrevivencia')}" th:errors="*{sobrevivencia}"></span>
+                </div>
+                <label for="intuicao" class="col-sm-1 col-form-label">intuicao</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{intuicao}" placeholder="Insira aintuicao" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('intuicao')}" th:errors="*{intuicao}"></span>
+                </div>
+
+                <label for="luta" class="col-sm-1 col-form-label">luta</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{luta}" placeholder="Insira a luta" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('luta')}" th:errors="*{luta}"></span>
+                </div>
+
+                <label for="medicina" class="col-sm-1 col-form-label">medicina</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{medicina}" placeholder="Insira medicinas" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('medicina')}" th:errors="*{medicina}"></span>
+                </div>
+
+
+
+            </div>
+            <div class="form-group row">
+
+
+                <label for="pilotagem" class="col-sm-1 col-form-label">pilotagem</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{pilotagem}" placeholder="Insira pilotagem" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('pilotagem')}" th:errors="*{pilotagem}"></span>
+                </div>
+
+                <label for="pontaria" class="col-sm-1 col-form-label">pontaria:</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{pontaria}" placeholder="Insira a pontaria" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('pontaria')}" th:errors="*{pontaria}"></span>
+                </div>
+
+                <label for="tecnologia" class="col-sm-1 col-form-label">tecnologia</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{tecnologia}" placeholder="Insira a acrobacias" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('tecnologia')}" th:errors="*{tecnologia}"></span>
+                </div>
+
+                <label for="vontade" class="col-sm-1 col-form-label">vontade</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{vontade}" placeholder="Insira a vontade" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('vontade')}" th:errors="*{vontade}"></span>
+                </div>
+                <label for="reflexo" class="col-sm-1 col-form-label">reflexo:</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{reflexo}" placeholder="Insira reflexo" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('reflexo')}" th:errors="*{reflexo}"></span>
+                </div>
+
+            </div>
+            <div class="form-group row">
+
+                <label for="percepcao" class="col-sm-1 col-form-label">percepcao:</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{percepcao}" placeholder="Insira a percepcao" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('percepcao')}" th:errors="*{percepcao}"></span>
+                </div>
+
+                <label for="iniciativa" class="col-sm-1 col-form-label">iniciativa</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{iniciativa}" placeholder="Insira iniciativa" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('iniciativa')}" th:errors="*{iniciativa}"></span>
+                </div>
+                <label for="acrobacias" class="col-sm-1 col-form-label">acrobacias</label>
+                <div class="col-sm-1">
+                    <input type="number" th:field="*{acrobacias}" placeholder="Insira acrobacias" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('acrobacias')}" th:errors="*{acrobacias}"></span>
+                </div>
+            </div>
+
+            <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+            <br>
+            <h2 class="text-center">Descrição do personagem</h2>
+            <div class="col-sm-12">
+                <label for="vontade" class="col-sm-2 col-form-label">Descrição:</label>
+                <input type="text" th:field="*{info}" placeholder="Insira descricao" class="form-control">
+                    
+            </div>
+
+
+
+
+            <input type="hidden" th:field="*{id}" />
+
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-info mt-4">Salvar</button>
+                </div>
+            </div>
+            
+            
+            
+        </form>
+
+        <hr>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

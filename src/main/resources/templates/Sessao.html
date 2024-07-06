@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <nav class="navbar bg-dark navbar-dark navbar-expand-sm py-3 sticky-top">
+
+        <div class="container">
+
+
+            <a class="navbar-brand " href="#">
+                Logo
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav"
+                style="cursor:pointer" aria-expanded="true">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="menuNav">
+
+
+                <ul class="navbar-nav ms-auto text-center ">
+
+                    <li class="nav-item">
+                        <a th:href="@{/}" class=" nav-link btn btn-primary btn-sm mb-3 active"> Inicio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/FormPersonagem}" class=" nav-link btn btn-primary btn-sm mb-3"> Cadastrar
+                            personagem
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/ListaPersonagem}" class=" nav-link btn btn-primary btn-sm mb-3"> Listar
+                            Personagem
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/Sessao}" class=" nav-link btn btn-primary btn-sm mb-3"> Sessao</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown  ">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Outros</a>
+                            <ul class="dropdown-menu text-center dropdown-menu-end">
+                                <li><a href="#" class="dropdown-item">A</a></li>
+                                <li><a href="#" class="dropdown-item">A</a></li>
+                                <li><a href="#" class="dropdown-item">A</a></li>
+                                <li><a href="#" class="dropdown-item">A</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <style>
+        body{
+            background-color: rgb(56, 56, 56);
+        }
+        h2,h3,
+        .descc {
+            color: white;
+        }
+        ul,li{
+            list-style-type: none;
+            text-decoration: none;
+        }
+        #primeiraLinha {
+            padding-top: 20px;
+            background-color: rgb(56, 56, 56);
+           
+     
+        }
+
+        #a01 {
+            background-color: rgb(173, 41, 41);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .col-form-label {
+            color: white;
+
+        }
+
+        .btns {
+            color: white;
+            border-radius: 14px;
+            padding: 10px;
+
+        }
+
+        #resultado {
+            padding: 10px;
+            background-color: rgb(173, 41, 41);
+            border-radius: 10px;
+            text-align: center;
+            align-items: center;
+        }
+
+
+    </style>
+
+
+
+        <div class="col-sm-12" id="primeiraLinha">
+            <div class="container">
+
+                <div class="row" id="primeiraExibicao">
+                    <div class="col-sm-4" id="msg1">
+                        <div class="col-sm-12">
+
+
+
+
+                            <form action="#" th:action="@{/Pers}" method="post">
+
+                                <label class="col-form-label" for="selectPersonagem">Escolha um Personagem:</label>
+                                <select class="form-control" id="selectPersonagem" name="personagemSelecionado">
+
+                                    <option th:each="personagem : ${listaPersonagens}" th:value="${personagem.id}"
+                                        th:text="${personagem.nome}">
+                                    </option>
+                                </select>
+
+                                <button class="btn btns button" type="submit">Selecionar</button>
+                            </form>
+
+
+                        </div>
+
+                        <br>
+                        <div id="a01" class="col-sm-12">
+
+
+                            <form action="#" th:action="@{/acao}" method="post">
+
+                                <label class="col-form-label" for="acaoSelecionada">Escolha uma ação:</label>
+                                <select class="form-control" id="acaoSelecionada" name="acaoSelecionada">
+                                    <option value="0">acrobacias</option>
+                                    <option value="1">adestramento</option>
+                                    <option value="2">artes</option>
+                                    <option value="3">atletismo</option>
+                                    <option value="4">crime</option>
+                                    <option value="5">ciencia</option>
+                                    <option value="6">reflexo</option>
+                                    <option value="7">diplomacia</option>
+                                    <option value="8">enganacao</option>
+                                    <option value="9">fortitude</option>
+                                    <option value="10">religiao</option>
+                                    <option value="11">furtividade</option>
+                                    <option value="12">iniciativa</option>
+                                    <option value="13">iniciativa</option>
+                                    <option value="14">intimidacao</option>
+                                    <option value="15">intuicao</option>
+                                    <option value="16">luta</option>
+                                    <option value="17">medicina</option>
+                                    <option value="18">percepcao</option>
+                                    <option value="19">pilotagem</option>
+                                    <option value="20">tecnologia</option>
+                                    <option value="21">vontade</option>
+                                </select>
+                                <button class="btn  btns button" type="submit">Selecionar</button>
+                            </form>
+                        </div>
+                        <div class="col-sm-12">
+
+                            <br>
+                            <hr>
+                            <div id="resultado">
+                                <h3>Resultado</h3>
+                                <ul>
+
+                                    <li th:each="valor : ${listaValores}" th:text="${valor}"></li>
+                                </ul>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-sm-8">
+                        <div class="container table-responsive">
+                            <h2 class="text-center">Detalhes do Personagem</h2>
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th colspan="2" class="text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Nome:</td>
+                                        <td th:text="${pers.nome}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vida:</td>
+                                        <td th:text="${pers.vida}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sanidade:</td>
+                                        <td th:text="${pers.sanidade}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th colspan="10" class="text-center">Atributos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Força:</td>
+                                        <td th:text="${pers.forca}"></td>
+                                        <td>Agilidade:</td>
+                                        <td th:text="${pers.agilidade}"></td>
+                                        <td>Presença:</td>
+                                        <td th:text="${pers.presenca}"></td>
+                                        <td>Vigor:</td>
+                                        <td th:text="${pers.vigor}"></td>
+                                        <td>Inteligência:</td>
+                                        <td th:text="${pers.inteligencia}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th colspan="10" class="text-center">Habilidades Gerais</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Adestramento:</td>
+                                        <td th:text="${pers.adestramento}"></td>
+                                        <td>Artes:</td>
+                                        <td th:text="${pers.artes}"></td>
+                                        <td>Atletismo:</td>
+                                        <td th:text="${pers.atletismo}"></td>
+                                        <td>Criminoso:</td>
+                                        <td th:text="${pers.crime}"></td>
+                                        <td>Ciência:</td>
+                                        <td th:text="${pers.ciencia}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Diplomacia:</td>
+                                        <td th:text="${pers.diplomacia}"></td>
+                                        <td>Enganação:</td>
+                                        <td th:text="${pers.enganacao}"></td>
+                                        <td>Fortitude:</td>
+                                        <td th:text="${pers.fortitude}"></td>
+                                        <td>Religião:</td>
+                                        <td th:text="${pers.religiao}"></td>
+                                        <td>Furtividade:</td>
+                                        <td th:text="${pers.furtividade}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Intimidação:</td>
+                                        <td th:text="${pers.intimidacao}"></td>
+                                        <td>Sobrevivência:</td>
+                                        <td th:text="${pers.sobrevivencia}"></td>
+                                        <td>Intuição:</td>
+                                        <td th:text="${pers.intuicao}"></td>
+                                        <td>Luta:</td>
+                                        <td th:text="${pers.luta}"></td>
+                                        <td>Medicina:</td>
+                                        <td th:text="${pers.medicina}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pilotagem:</td>
+                                        <td th:text="${pers.pilotagem}"></td>
+                                        <td>Pontaria:</td>
+                                        <td th:text="${pers.pontaria}"></td>
+                                        <td>Tecnologia:</td>
+                                        <td th:text="${pers.tecnologia}"></td>
+                                        <td>Vontade:</td>
+                                        <td th:text="${pers.vontade}"></td>
+                                        <td>Reflexo:</td>
+                                        <td th:text="${pers.reflexo}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Percepção:</td>
+                                        <td th:text="${pers.percepcao}"></td>
+                                        <td>Iniciativa:</td>
+                                        <td th:text="${pers.iniciativa}"></td>
+                                        <td>Acrobacias:</td>
+                                        <td th:text="${pers.acrobacias}"></td>
+                                        <td colspan="4"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h2 class="text-center">Descrição do Personagem</h2>
+                                    <p class="descc" th:text="${pers.info}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <div id="linha-destaques" class="row"></div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
