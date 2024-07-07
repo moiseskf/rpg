@@ -107,9 +107,8 @@ public class PersonagemEntity {
     @Min(value = 0, message = "Nao pode ser menor que 0.")
     private int vontade; //presenca
     
-    
    
-   @Min(value = 15, message = "Adicione uma descrição (min 15 caracteres).")
+   @Size(min = 15, message = "Adicione uma descrição (min 15 caracteres).")
     private String info;
     
 }
