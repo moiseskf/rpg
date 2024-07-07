@@ -109,7 +109,7 @@ public class PersonagemEntity {
     
     
    
-   
+   @Min(value = 15, message = "Adicione uma descrição (min 15 caracteres).")
     private String info;
     
 }

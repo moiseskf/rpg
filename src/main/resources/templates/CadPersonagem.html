@@ -196,12 +196,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <label for="crime" class="col-sm-1 col-form-label">crime</label>
                 <div class="col-sm-1">
                     <input type="number" th:field="*{crime}" placeholder="Insira a crime" class="form-control">
-                        <span class="text-danger" th:if="${#fields.hasErrors('inteligencia')}" th:errors="*{inteligencia}"></span>
+                        <span class="text-danger" th:if="${#fields.hasErrors('crime')}" th:errors="*{crime}"></span>
                 </div>
                 <label for="ciencia" class="col-sm-1 col-form-label">ciencia:</label>
                 <div class="col-sm-1">
                     <input type="number" th:field="*{ciencia}" placeholder="Insira ciencia" class="form-control">
-                        <span class="text-danger" th:if="${#fields.hasErrors('inteligencia')}" th:errors="*{inteligencia}"></span>
+                        <span class="text-danger" th:if="${#fields.hasErrors('ciencia')}" th:errors="*{ciencia}"></span>
                 </div>
 
 
@@ -331,6 +331,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="col-sm-12">
                 <label for="vontade" class="col-sm-2 col-form-label">Descrição:</label>
                 <input type="text" th:field="*{info}" placeholder="Insira descricao" class="form-control">
+                    <span class="text-danger" th:if="${#fields.hasErrors('info')}" th:errors="*{info}"></span>
                     
             </div>
 
