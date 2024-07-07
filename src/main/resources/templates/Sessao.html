@@ -182,7 +182,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <option value="20">tecnologia</option>
                                     <option value="21">vontade</option>
                                 </select>
-                                <button class="btn  btns button" type="submit">Selecionar</button>
+                                
+                                <div th:if="${pers.nome != null}" >
+                                <button  class="btn  btns button" type="submit">Selecionar</button>
+                                </div>
                             </form>
                         </div>
                         <div class="col-sm-12">
